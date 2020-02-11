@@ -16,7 +16,7 @@ extension UIViewController
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Return", style: .default) { (UIAlertAction) in
             self.dismiss(animated: true, completion: nil)
-            self.performSegue(withIdentifier: "tohome", sender: nil)
+            self.navigationController?.popViewController(animated: true)
         }
         alert.addAction(action)
         present(alert,animated: true,completion: nil)
