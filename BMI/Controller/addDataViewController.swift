@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 class addDataViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
 
@@ -44,7 +46,6 @@ class addDataViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     
     @IBAction func ageTypingStarted(_ sender: UITextField) {
-        print("agagegegeggege")
         ageOrWeight = true
         pickerView.isHidden = false
         pickerView.reloadComponent(0)
@@ -61,9 +62,21 @@ class addDataViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             self.showError(errorLabel, validateFields() ?? "error!")
         }
         else {
-            authAlert(title: "Success", message: "your data has been successfully saved!")
+            let name =  nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            let age = ageTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            let weigth = weigthTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            let height = heightTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            let uid = Auth.auth().currentUser?.uid
+            let db = Firestore.firestore()
+            db.collection("users").addDocument(data: ["name":name!,"age":age!,"weight":weigth!,"height":height!,"uid":uid!]) { (error) in
+                if error != nil {
+                    print("Error saving user info")
+                }
+                else {
+                    self.authAlert(title: "Success", message: "your data has been successfully saved!")
+                }
+            }
         }
-        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

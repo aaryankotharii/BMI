@@ -93,15 +93,16 @@ class signupViewController: UIViewController {
                    }
                     else { self.authAlert(title: "Error", message: errorMessage ?? "please try again")}
                 }
-                else {
-                    let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["firstName":firstName,"lastName":lastName,"email":email,"uid":result!.user.uid]) { (error) in
-                        if error != nil {
-                            print("Error saving user info")
-                        }
-                    }
-                    self.authAlert(title: "Success", message: "you can now login!")
-                }
+//                else {
+//                    let db = Firestore.firestore()
+//                    db.collection("users").addDocument(data: ["firstName":firstName,"lastName":lastName,"email":email,"uid":result!.user.uid,"age":0]) { (error) in
+//                        if error != nil {
+//                            print("Error saving user info")
+//                        }
+//                    }
+//                    self.authAlert(title: "Success", message: "you can now login!")
+//                }
+                self.authAlert(title: "Success", message: "you can now login!")
             }
         }
     }
