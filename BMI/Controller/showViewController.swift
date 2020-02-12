@@ -11,15 +11,11 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class showViewController: UIViewController, UITableViewDelegate,UITableViewDataSource{
-
-    
-
-    
     
     @IBOutlet weak var tableView: UITableView!
     
     var userinfo = [String: String]()
-    var user = [UserInfo]()
+    var user =  [[String:String]]()
     var names : [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,36 +33,58 @@ class showViewController: UIViewController, UITableViewDelegate,UITableViewDataS
                 } else {
                     for document in querySnapshot!.documents {
                         if let name = document.data()["name"] as? String {
-                            print(name)
-                            self.names.append(name)
+                            if let age = document.data()["age"] as? String {
+                                if let weight = document.data()["weight"] as? String {
+                                    if let height = document.data()["height"] as? String {
+                                        self.userinfo = ["name":name,"age":age,"weight":weight,"height":height]
+                                        print(self.userinfo)
+                                        self.user.append(self.userinfo)
+                            }
+                                }}
                         }
-                        let age = document.data()["age"] as? String
-                        let weight = document.data()["weight"] as? String
-                        let height = document.data()["height"] as? String
-                        print(document.data()["name"].debugDescription)
-                        
-//                            self.lastName = document.data()["lastName"] as? String
-//                            self.nameLabel.alpha=1
-//                            self.nameLabel.text = self.firstName + "  " + self.lastName
-//                            print(self.firstName ?? "","first Name")
                     }
+                    print(self.user)
+
                 }
                 self.tableView.reloadData()
             }
+        print(user)
     }
     
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return names.count
+        return user.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? showTableViewCell
-        cell?.userName.text = names[indexPath.row]
+        cell?.userName.text = user[indexPath.row]["name"]
         return cell!
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //perform segue
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vc = storyboard.instantiateViewController(identifier: "bmiViewController") as? bmiViewController
+
+
+        let data = user[indexPath.row]
+        
+        vc?.name = data["name"] ?? ""
+        
+        vc?.age = data["age"] ?? ""
+
+        vc?.weight = data["weight"] ?? ""
+        
+        vc?.height = data["height"] ?? ""
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
+        
+    }
+    
 }
