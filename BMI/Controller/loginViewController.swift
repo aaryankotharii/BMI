@@ -69,9 +69,8 @@ class loginViewController: UIViewController {
     func transitionToNextPage(){
         let controller = UIStoryboard(name: "Main", bundle: nil)
         
-        let vc = storyboard!.instantiateViewController(identifier: "chooseViewController") as? chooseViewController
-
-        self.present(vc!,animated: true)
+        let vc = storyboard!.instantiateViewController(identifier: "chooseViewController")
+        self.present(vc,animated: true)
     }
     
 }
