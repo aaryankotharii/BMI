@@ -28,4 +28,22 @@ extension UIViewController
         errorLabel.text = message
         errorLabel.numberOfLines = 5
     }
+    
+    // Function for tap gesture
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    // Calling dismiss selector actions
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    // Make the navigation bar background clear
+    func transparentNavBar(){
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    navigationController?.navigationBar.shadowImage = UIImage()
+    navigationController?.navigationBar.isTranslucent = true
+    }
 }

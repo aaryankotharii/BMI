@@ -59,6 +59,13 @@ class showViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? showTableViewCell
         cell?.userName.text = user[indexPath.row]["name"]
+        let sex = user[indexPath.row]["gender"]
+        if sex == "0"{
+            cell?.userImage.image = UIImage(named: "m")
+            
+        } else {
+                cell?.userImage.image = UIImage(named: "f")
+            }
         return cell!
     }
     
@@ -66,12 +73,13 @@ class showViewController: UIViewController, UITableViewDelegate,UITableViewDataS
         return 100
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //unhighlight cell
+        tableView.deselectRow(at: indexPath, animated: true)
         
         //perform segue
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let vc = storyboard.instantiateViewController(identifier: "bmiViewController") as? bmiViewController
-
 
         let data = user[indexPath.row]
         
@@ -84,7 +92,5 @@ class showViewController: UIViewController, UITableViewDelegate,UITableViewDataS
         vc?.height = data["height"] ?? ""
         
         self.navigationController?.pushViewController(vc!, animated: true)
-        
     }
-    
 }

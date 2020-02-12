@@ -24,7 +24,11 @@ class signupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Utilities.styleFilledButton(signupButton)
+        signupButton.backgroundColor =  #colorLiteral(red: 0.4722413421, green: 0.8389235139, blue: 1, alpha: 1)
         signupButton.isEnabled = true
+        errorLabel.alpha = 0
+        hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
     }
     
@@ -76,12 +80,11 @@ class signupViewController: UIViewController {
     
     @IBAction func signUp(_ sender: UIButton) {
         if errorCheck() != nil{
+            errorLabel.alpha = 1
             self.showError(errorLabel,errorCheck()!)
         }
         else {
             signupButton.isEnabled = false
-            let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
@@ -93,15 +96,20 @@ class signupViewController: UIViewController {
                    }
                     else { self.authAlert(title: "Error", message: errorMessage ?? "please try again")}
                 }
-//                else {
-//                    let db = Firestore.firestore()
-//                    db.collection("users").addDocument(data: ["firstName":firstName,"lastName":lastName,"email":email,"uid":result!.user.uid,"age":0]) { (error) in
-//                        if error != nil {
-//                            print("Error saving user info")
-//                        }
-//                    }
-//                    self.authAlert(title: "Success", message: "you can now login!")
-//                }
+                
+                    //MARK: - adding data on firebase
+                    /*  else {
+                    let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                    let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                    let db = Firestore.firestore()
+                    db.collection("users").addDocument(data:
+                    ["firstName":firstName,"lastName":lastName,"email":email,"uid":result!.user.uid,"age":0]) { (error) in
+                    if error != nil {
+                    print("Error saving user info")
+                    }
+                    }
+                    self.authAlert(title: "Success", message: "you can now login!")
+                    }*/
                 self.authAlert(title: "Success", message: "you can now login!")
             }
         }

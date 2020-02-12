@@ -20,6 +20,9 @@ class loginViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        errorLabel.alpha = 0
+        loginButton.isEnabled = true
+        hideKeyboardWhenTappedAround()
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -34,11 +37,15 @@ class loginViewController: UIViewController {
         let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if email == "" || password == "" {
+            errorLabel.alpha = 1
             self.showError(errorLabel, "Please fill in all fields")
     }
         else {
+            loginButton.isEnabled = false
             Auth.auth().signIn(withEmail: email!, password: password!) { (result, error) in
                 if error != nil {
+                    self.loginButton.isEnabled = true
+                self.errorLabel.alpha = 1
                 switch error?.localizedDescription {
                 case "The email address is badly formatted.":
                     self.showError(self.errorLabel,"Please enter a valid Email ID")
@@ -60,7 +67,11 @@ class loginViewController: UIViewController {
 }
     
     func transitionToNextPage(){
-        performSegue(withIdentifier: "tobmi", sender: self)
+        let controller = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vc = storyboard!.instantiateViewController(identifier: "chooseViewController") as? chooseViewController
+
+        self.present(vc!,animated: true)
     }
     
 }
