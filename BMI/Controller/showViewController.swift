@@ -36,11 +36,12 @@ class showViewController: UIViewController, UITableViewDelegate,UITableViewDataS
                             if let age = document.data()["age"] as? String {
                                 if let weight = document.data()["weight"] as? String {
                                     if let height = document.data()["height"] as? String {
-                                        self.userinfo = ["name":name,"age":age,"weight":weight,"height":height]
+                                        if let gender = document.data()["gender"] as? Int {
+                                            self.userinfo = ["name":name,"age":age,"weight":weight,"height":height,"gender":"\(gender)"]
                                         print(self.userinfo)
                                         self.user.append(self.userinfo)
                             }
-                                }}
+                                }}}
                         }
                     }
                     print(self.user)
