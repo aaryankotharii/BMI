@@ -14,6 +14,8 @@
 		5B10460C23F3C7E4007B52A9 /* bmiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10460B23F3C7E4007B52A9 /* bmiViewController.swift */; };
 		5B10460E23F3D52B007B52A9 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10460D23F3D52B007B52A9 /* Utilities.swift */; };
 		5B10461023F41BB0007B52A9 /* chooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10460F23F41BB0007B52A9 /* chooseViewController.swift */; };
+		5B10461523F6781A007B52A9 /* googleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10461423F6781A007B52A9 /* googleViewController.swift */; };
+		5B10461723F6D1B8007B52A9 /* google+Signin+methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10461623F6D1B8007B52A9 /* google+Signin+methods.swift */; };
 		5B30C20A23F1AA20001C20BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30C20923F1AA20001C20BD /* AppDelegate.swift */; };
 		5B30C20C23F1AA20001C20BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30C20B23F1AA20001C20BD /* SceneDelegate.swift */; };
 		5B30C21123F1AA20001C20BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B30C20F23F1AA20001C20BD /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 		5B10460B23F3C7E4007B52A9 /* bmiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bmiViewController.swift; sourceTree = "<group>"; };
 		5B10460D23F3D52B007B52A9 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5B10460F23F41BB0007B52A9 /* chooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chooseViewController.swift; sourceTree = "<group>"; };
+		5B10461423F6781A007B52A9 /* googleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = googleViewController.swift; sourceTree = "<group>"; };
+		5B10461623F6D1B8007B52A9 /* google+Signin+methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "google+Signin+methods.swift"; sourceTree = "<group>"; };
 		5B30C20623F1AA20001C20BD /* BMI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B30C20923F1AA20001C20BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B30C20B23F1AA20001C20BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,8 +88,17 @@
 				5B30C22323F31C18001C20BD /* Alert+Errors+Functions.swift */,
 				5B10460923F3C6B9007B52A9 /* BMI.swift */,
 				5B10460D23F3D52B007B52A9 /* Utilities.swift */,
+				5B10461623F6D1B8007B52A9 /* google+Signin+methods.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5B10461123F42786007B52A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B10460123F343B9007B52A9 /* showTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5B30C1FD23F1AA20001C20BD = {
@@ -116,9 +129,10 @@
 				5B30C21423F1AA24001C20BD /* LaunchScreen.storyboard */,
 				5B30C21723F1AA24001C20BD /* Info.plist */,
 				5B30C21D23F1BE33001C20BD /* GoogleService-Info.plist */,
+				5B10461123F42786007B52A9 /* View */,
 				5B10460323F349EA007B52A9 /* Controller */,
-				5B10460123F343B9007B52A9 /* showTableViewCell.swift */,
 				5B10460423F349F4007B52A9 /* Utilities */,
+				5B10461423F6781A007B52A9 /* googleViewController.swift */,
 			);
 			path = BMI;
 			sourceTree = "<group>";
@@ -152,6 +166,7 @@
 				5B30C20323F1AA20001C20BD /* Frameworks */,
 				5B30C20423F1AA20001C20BD /* Resources */,
 				BF8CF8E30C897E9A1F5E0864 /* [CP] Embed Pods Frameworks */,
+				1A0D8F19ECBDBE6B0050DB28 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,6 +225,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1A0D8F19ECBDBE6B0050DB28 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BMI/Pods-BMI-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BMI/Pods-BMI-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BMI/Pods-BMI-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BF8CF8E30C897E9A1F5E0864 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -267,7 +299,9 @@
 				5B10461023F41BB0007B52A9 /* chooseViewController.swift in Sources */,
 				5B30C22423F31C18001C20BD /* Alert+Errors+Functions.swift in Sources */,
 				5B30C22223F30C7B001C20BD /* signupViewController.swift in Sources */,
+				5B10461523F6781A007B52A9 /* googleViewController.swift in Sources */,
 				5B10460C23F3C7E4007B52A9 /* bmiViewController.swift in Sources */,
+				5B10461723F6D1B8007B52A9 /* google+Signin+methods.swift in Sources */,
 				5B30C20C23F1AA20001C20BD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

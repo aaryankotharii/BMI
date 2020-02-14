@@ -12,24 +12,28 @@ import FirebaseFirestore
 
 class signupViewController: UIViewController {
 
+    //Outlets
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
+    //Variables
      let passwordConstraints : String =  "Password should be minimum 8 characters, should contain atleast one uppercase letter, one lowercase letter, atleast one number digit and at least one special character"
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
+        initialSetup()
+        hideKeyboardWhenTappedAround()
+        }
+    
+    func initialSetup(){
         Utilities.styleFilledButton(signupButton)
         signupButton.backgroundColor =  #colorLiteral(red: 0.4722413421, green: 0.8389235139, blue: 1, alpha: 1)
         signupButton.isEnabled = true
         errorLabel.alpha = 0
-        hideKeyboardWhenTappedAround()
-        // Do any additional setup after loading the view.
     }
     
     func fieldCheck() -> String? {

@@ -72,5 +72,15 @@ class loginViewController: UIViewController {
         let vc = storyboard!.instantiateViewController(identifier: "chooseViewController")
         self.present(vc,animated: true)
     }
+        
+    
+    @IBAction func googleLogin(_ sender: Any) {
+        let controller = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vc = storyboard!.instantiateViewController(identifier: "googleViewController") as? googleViewController
+        
+       // vc?.sign
+        
+    }
     
 }

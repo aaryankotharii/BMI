@@ -11,13 +11,21 @@ import FirebaseAuth
 
 class chooseViewController: UIViewController {
 
+
+    @IBOutlet weak var greetingLabel: UILabel!
+    
+    var firstName = ""
+    lazy var lastName = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(firstName,lastName)
         transparentNavBar()
+        greetingLabel.text = "Hey " + "\(firstName)"
+        
         // Do any additional setup after loading the view.
     }
     
-
+    
     @IBAction func signOutTapped(_ sender: Any) {
         print("signOut")
         let firebaseAuth = Auth.auth()
@@ -27,8 +35,8 @@ class chooseViewController: UIViewController {
             try firebaseAuth.signOut()
             print("SignOut sucessful")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController
-            self.present(vc!, animated: true, completion: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ViewController")
+            self.present(vc, animated: true, completion: nil)
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
