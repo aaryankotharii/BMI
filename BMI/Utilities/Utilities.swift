@@ -9,7 +9,7 @@
 
 import UIKit
 
-class Utilities {
+class Utilities{
     
     
 static func styleTextField(_ textfield:UITextField) {

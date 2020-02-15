@@ -14,14 +14,14 @@ class chooseViewController: UIViewController {
 
     @IBOutlet weak var greetingLabel: UILabel!
     
-    var firstName = ""
+    lazy var firstName = ""
     lazy var lastName = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         print(firstName,lastName)
         transparentNavBar()
         greetingLabel.text = "Hey " + "\(firstName)"
-        
+        print("yo")
         // Do any additional setup after loading the view.
     }
     
@@ -50,5 +50,4 @@ class chooseViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

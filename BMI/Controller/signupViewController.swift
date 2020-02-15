@@ -9,8 +9,10 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import GoogleSignIn
+import Firebase
 
-class signupViewController: UIViewController {
+class signupViewController: UIViewController, GIDSignInDelegate{
 
     //Outlets
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -23,10 +25,13 @@ class signupViewController: UIViewController {
     //Variables
      let passwordConstraints : String =  "Password should be minimum 8 characters, should contain atleast one uppercase letter, one lowercase letter, atleast one number digit and at least one special character"
     
+    
     override func viewDidLoad(){
         super.viewDidLoad()
         initialSetup()
         hideKeyboardWhenTappedAround()
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         }
     
     func initialSetup(){
@@ -116,6 +121,46 @@ class signupViewController: UIViewController {
                     }*/
                 self.authAlert(title: "Success", message: "you can now login!")
             }
+        }
+    }
+    
+    @IBAction func googleSignIn(_ sender: Any) {
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().signIn()
+        self.blurView()
+    }
+
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        if let error = error {
+            if error.localizedDescription == "The user canceled the sign-in flow." {
+                removeBlurView()
+                return
+            }
+            else {
+            print(error)
+            return
+            }
+        }
+        guard let authentication = user.authentication else { return }
+        
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        print(credential as Any)
+        
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            guard let uid = user.userID else { return }
+            print("Sucessfully logged into firebase with Google!",uid)
+            
+           //Access the storyboard and fetch an instance of the view controller
+            let storyboard = UIStoryboard(name: "Main", bundle: nil);
+            let vc = storyboard.instantiateViewController(withIdentifier: "chooseVC") as! chooseViewController
+           vc.firstName = user.profile.givenName
+           vc.lastName = user.profile.familyName
+                  let controller = storyboard.instantiateViewController(withIdentifier: "chooseViewController")
+          self.present(controller, animated: true, completion: nil)
         }
     }
 }

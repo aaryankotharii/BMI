@@ -79,7 +79,13 @@ class addDataViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     print("Error saving user info")
                 }
                 else {
-                    self.authAlert(title: "Success", message: "your data has been successfully saved!")
+                   // self.authAlert(title: "Success", message: "your data has been successfully saved!")
+                    let alert = UIAlertController(title: "Success", message: "your data has been successfully saved!", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Return", style: .default) { (UIAlertAction) in
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    alert.addAction(action)
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }
