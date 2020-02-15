@@ -46,4 +46,10 @@ extension UIViewController
     navigationController?.navigationBar.shadowImage = UIImage()
     navigationController?.navigationBar.isTranslucent = true
     }
+    
+    func segueToChooseVC(){
+         //Access the storyboard and fetch an instance of the view controller
+        let controller = storyboard!.instantiateViewController(withIdentifier: "chooseViewController")
+        self.present(controller, animated: true, completion: nil)
+    }
 }

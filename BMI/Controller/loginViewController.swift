@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
+import Firebase
 
 
 class loginViewController: UIViewController {
@@ -23,6 +25,8 @@ class loginViewController: UIViewController {
         errorLabel.alpha = 0
         loginButton.isEnabled = true
         hideKeyboardWhenTappedAround()
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -69,5 +73,15 @@ class loginViewController: UIViewController {
     func transitionToNextPage(){        
         let vc = storyboard!.instantiateViewController(identifier: "chooseViewController")
         self.present(vc,animated: true)
+    }
+    
+    @IBAction func google_signin(_ sender: Any) {
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().signIn()
+        self.blurView()
+    }
+    
+    @IBAction func facebookLogin(_ sender: Any) {
+        self.fbLogin()
     }
 }
