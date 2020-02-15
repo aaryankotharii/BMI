@@ -17,6 +17,7 @@
 		5B165B6623F7B14E00368964 /* Blur+functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B165B6523F7B14E00368964 /* Blur+functions.swift */; };
 		5B165B6823F7C99800368964 /* google+sigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B165B6723F7C99800368964 /* google+sigin.swift */; };
 		5B165B6C23F7E68900368964 /* Facebook+login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B165B6B23F7E68900368964 /* Facebook+login.swift */; };
+		5B165B6E23F7E98E00368964 /* idk in Resources */ = {isa = PBXBuildFile; fileRef = 5B165B6D23F7E98E00368964 /* idk */; };
 		5B30C20A23F1AA20001C20BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30C20923F1AA20001C20BD /* AppDelegate.swift */; };
 		5B30C20C23F1AA20001C20BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30C20B23F1AA20001C20BD /* SceneDelegate.swift */; };
 		5B30C21123F1AA20001C20BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B30C20F23F1AA20001C20BD /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		5B165B6523F7B14E00368964 /* Blur+functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Blur+functions.swift"; sourceTree = "<group>"; };
 		5B165B6723F7C99800368964 /* google+sigin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "google+sigin.swift"; sourceTree = "<group>"; };
 		5B165B6B23F7E68900368964 /* Facebook+login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Facebook+login.swift"; sourceTree = "<group>"; };
+		5B165B6D23F7E98E00368964 /* idk */ = {isa = PBXFileReference; lastKnownFileType = text; path = idk; sourceTree = "<group>"; };
 		5B30C20623F1AA20001C20BD /* BMI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B30C20923F1AA20001C20BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B30C20B23F1AA20001C20BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		5B30C1FD23F1AA20001C20BD = {
 			isa = PBXGroup;
 			children = (
+				5B165B6D23F7E98E00368964 /* idk */,
 				5B30C20823F1AA20001C20BD /* BMI */,
 				5B30C20723F1AA20001C20BD /* Products */,
 				830C5F5101891AE165E61981 /* Pods */,
@@ -222,6 +225,7 @@
 				5B30C21E23F1BE33001C20BD /* GoogleService-Info.plist in Resources */,
 				5B30C21323F1AA24001C20BD /* Assets.xcassets in Resources */,
 				5B30C21123F1AA20001C20BD /* Main.storyboard in Resources */,
+				5B165B6E23F7E98E00368964 /* idk in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

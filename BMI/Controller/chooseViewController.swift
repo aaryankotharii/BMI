@@ -20,11 +20,12 @@ class chooseViewController: UIViewController {
         super.viewDidLoad()
         print(firstName,lastName)
         transparentNavBar()
-        greetingLabel.text = "Hey " + "\(firstName)"
+        greetingLabel.text = "Hey " + "\(firstName)" + ","
         print("yo")
         // Do any additional setup after loading the view.
     }
     
+    @IBOutlet weak var signOutButton: UIBarButtonItem!
     
     @IBAction func signOutTapped(_ sender: Any) {
         print("signOut")

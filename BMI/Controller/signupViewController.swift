@@ -26,6 +26,9 @@ class signupViewController: UIViewController{
      let passwordConstraints : String =  "Password should be minimum 8 characters, should contain atleast one uppercase letter, one lowercase letter, atleast one number digit and at least one special character"
     
     
+    @IBOutlet weak var googleButton: UIButton!
+    @IBOutlet weak var facebookButton: UIButton!
+    
     override func viewDidLoad(){
         super.viewDidLoad()
         initialSetup()
@@ -69,7 +72,10 @@ class signupViewController: UIViewController{
     
     func validatePassword() -> String? {
         let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        if passwordIsValid(cleanedPassword) == false  {  return passwordConstraints  }
+        if passwordIsValid(cleanedPassword) == false  {
+            googleButton.isHidden = true
+            return passwordConstraints  }
+            googleButton.isHidden = false
         return nil
     }
     
