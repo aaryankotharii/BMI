@@ -12,7 +12,6 @@
 		5B10460223F343B9007B52A9 /* showTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10460123F343B9007B52A9 /* showTableViewCell.swift */; };
 		5B10460A23F3C6B9007B52A9 /* BMI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10460923F3C6B9007B52A9 /* BMI.swift */; };
 		5B10460C23F3C7E4007B52A9 /* bmiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10460B23F3C7E4007B52A9 /* bmiViewController.swift */; };
-		5B10460E23F3D52B007B52A9 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10460D23F3D52B007B52A9 /* Utilities.swift */; };
 		5B10461023F41BB0007B52A9 /* chooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10460F23F41BB0007B52A9 /* chooseViewController.swift */; };
 		5B165B6623F7B14E00368964 /* Blur+functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B165B6523F7B14E00368964 /* Blur+functions.swift */; };
 		5B165B6823F7C99800368964 /* google+sigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B165B6723F7C99800368964 /* google+sigin.swift */; };
@@ -28,6 +27,7 @@
 		5B30C22223F30C7B001C20BD /* signupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30C22123F30C7B001C20BD /* signupViewController.swift */; };
 		5B30C22423F31C18001C20BD /* Alert+Errors+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30C22323F31C18001C20BD /* Alert+Errors+Functions.swift */; };
 		5B30C22623F322B9001C20BD /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30C22523F322B9001C20BD /* loginViewController.swift */; };
+		5B60663823F91C53002FD81E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B60663723F91C53002FD81E /* Utilities.swift */; };
 		BB0970909A08F08847A6F109 /* Pods_BMI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4CDA2DEF469BE7130E8B50 /* Pods_BMI.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +37,6 @@
 		5B10460123F343B9007B52A9 /* showTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showTableViewCell.swift; sourceTree = "<group>"; };
 		5B10460923F3C6B9007B52A9 /* BMI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMI.swift; sourceTree = "<group>"; };
 		5B10460B23F3C7E4007B52A9 /* bmiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bmiViewController.swift; sourceTree = "<group>"; };
-		5B10460D23F3D52B007B52A9 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5B10460F23F41BB0007B52A9 /* chooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chooseViewController.swift; sourceTree = "<group>"; };
 		5B165B6523F7B14E00368964 /* Blur+functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Blur+functions.swift"; sourceTree = "<group>"; };
 		5B165B6723F7C99800368964 /* google+sigin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "google+sigin.swift"; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		5B30C22123F30C7B001C20BD /* signupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signupViewController.swift; sourceTree = "<group>"; };
 		5B30C22323F31C18001C20BD /* Alert+Errors+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Errors+Functions.swift"; sourceTree = "<group>"; };
 		5B30C22523F322B9001C20BD /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		5B60663723F91C53002FD81E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		9C4CDA2DEF469BE7130E8B50 /* Pods_BMI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BMI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A13D54EDFD38EE73F267FEF7 /* Pods-BMI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BMI.release.xcconfig"; path = "Target Support Files/Pods-BMI/Pods-BMI.release.xcconfig"; sourceTree = "<group>"; };
 		D287371E30CBDC24AC7347BD /* Pods-BMI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BMI.debug.xcconfig"; path = "Target Support Files/Pods-BMI/Pods-BMI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -86,17 +86,17 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		5B10460423F349F4007B52A9 /* Utilities */ = {
+		5B10460423F349F4007B52A9 /* Model + Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				5B30C22323F31C18001C20BD /* Alert+Errors+Functions.swift */,
 				5B10460923F3C6B9007B52A9 /* BMI.swift */,
-				5B10460D23F3D52B007B52A9 /* Utilities.swift */,
 				5B165B6523F7B14E00368964 /* Blur+functions.swift */,
 				5B165B6723F7C99800368964 /* google+sigin.swift */,
 				5B165B6B23F7E68900368964 /* Facebook+login.swift */,
+				5B60663723F91C53002FD81E /* Utilities.swift */,
 			);
-			path = Utilities;
+			path = "Model + Utilities";
 			sourceTree = "<group>";
 		};
 		5B10461123F42786007B52A9 /* View */ = {
@@ -138,7 +138,7 @@
 				5B30C21D23F1BE33001C20BD /* GoogleService-Info.plist */,
 				5B10461123F42786007B52A9 /* View */,
 				5B10460323F349EA007B52A9 /* Controller */,
-				5B10460423F349F4007B52A9 /* Utilities */,
+				5B10460423F349F4007B52A9 /* Model + Utilities */,
 			);
 			path = BMI;
 			sourceTree = "<group>";
@@ -301,8 +301,8 @@
 				5B10460A23F3C6B9007B52A9 /* BMI.swift in Sources */,
 				5B165B6C23F7E68900368964 /* Facebook+login.swift in Sources */,
 				5B1045FE23F3316A007B52A9 /* addDataViewController.swift in Sources */,
+				5B60663823F91C53002FD81E /* Utilities.swift in Sources */,
 				5B10460023F343A2007B52A9 /* showViewController.swift in Sources */,
-				5B10460E23F3D52B007B52A9 /* Utilities.swift in Sources */,
 				5B30C22623F322B9001C20BD /* loginViewController.swift in Sources */,
 				5B10461023F41BB0007B52A9 /* chooseViewController.swift in Sources */,
 				5B30C22423F31C18001C20BD /* Alert+Errors+Functions.swift in Sources */,

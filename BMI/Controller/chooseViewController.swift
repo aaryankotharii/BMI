@@ -9,46 +9,50 @@
 import UIKit
 import FirebaseAuth
 
+
 class chooseViewController: UIViewController {
 
-
+    //MARK: - Outlets + Variables
     @IBOutlet weak var greetingLabel: UILabel!
     
     lazy var firstName = ""
     lazy var lastName = ""
+    
+    
+    
+    //MARK:- ViewdidLoad
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        print(firstName,lastName)
-        transparentNavBar()
+        if firstName != ""{
         greetingLabel.text = "Hey " + "\(firstName)" + ","
-        print("yo")
-        // Do any additional setup after loading the view.
-    }
+        }
+        transparentNavBar()
+        }
     
-    @IBOutlet weak var signOutButton: UIBarButtonItem!
     
+    //MARK: - Signout function
     @IBAction func signOutTapped(_ sender: Any) {
-        print("signOut")
         let firebaseAuth = Auth.auth()
         do {
             // Set initial user default for login as false
             UserDefaults.standard.set(false, forKey: "login")
             try firebaseAuth.signOut()
             print("SignOut sucessful")
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "ViewController")
-            self.present(vc, animated: true, completion: nil)
+            back2Home()
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: - navigate to home
+    func back2Home(){
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vc = storyboard.instantiateViewController(withIdentifier: "ViewController")
+        
+        self.present(vc, animated: true, completion: nil)
     }
-    */
+    
 }

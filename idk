@@ -2,3 +2,42 @@
 #facebookblur
 
 #image make proper
+
+#facebook cancel button
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+else {
+let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+let db = Firestore.firestore()
+db.collection("users").addDocument(data:
+["firstName":firstName,"lastName":lastName,"email":email,"uid":result!.user.uid,"age":0]) { (error) in
+if error != nil {
+print("Error saving user info")
+}
+}
+self.authAlert(title: "Success", message: "you can now login!")
+}

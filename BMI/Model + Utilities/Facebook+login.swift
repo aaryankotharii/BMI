@@ -14,8 +14,6 @@ import FirebaseAuth
 
 extension UIViewController
 {
-    
-    
      func fbLogin(){
          
          let loginManager = LoginManager()
@@ -33,19 +31,16 @@ extension UIViewController
                Auth.auth().signIn(with: credential) { (authResult, error) in
                  if let error = error {
                    print(error)
-                   // ...
                    return
                  }
                  else{
-                   print(authResult,"AUTHRESULT")
                     print("Sucessfully logged into firebase with facebook!")
-                     }
-                 }
-               }
-         }
-         
+                    }
+                }
+            }
+        }
      }
-     
+    
      func getFBUserData() -> Bool {
           
           if((AccessToken.current) != nil){
@@ -70,9 +65,7 @@ extension UIViewController
                   print(error?.localizedDescription as Any)
               })
              return true
-
           }
-          
           return false
       }
 }

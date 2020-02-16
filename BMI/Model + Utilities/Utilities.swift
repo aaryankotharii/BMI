@@ -2,11 +2,9 @@
 //  Utilities.swift
 //  BMI
 //
-//  Created by Aaryan Kothari on 12/02/20.
+//  Created by Aaryan Kothari on 16/02/20.
 //  Copyright © 2020 Aaryan Kothari. All rights reserved.
 //
-
-
 import UIKit
 
 class Utilities{
