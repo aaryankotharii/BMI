@@ -149,9 +149,6 @@
                                         <state key="normal" title="Signup">
                                             <color key="titleColor" red="0.046190776349999997" green="0.1487253771" blue="0.6823918269" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="Br9-dh-8i1" kind="show" id="1h6-N6-T0u"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="ARH-pF-DwH" userLabel="I"/>
@@ -663,7 +660,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z1d-N3-Cga">
                                         <rect key="frame" x="0.0" y="230" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -708,7 +705,7 @@
                                             <color key="titleColor" red="0.046190776349999997" green="0.1487253771" blue="0.6823918269" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="NJr-X5-thb" kind="show" id="E10-Ng-Xte"/>
+                                            <action selector="alreadyAccountPressed:" destination="Br9-dh-8i1" eventType="touchUpInside" id="ROl-w0-a5J"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -785,6 +782,7 @@
                         <outlet property="lastNameTextField" destination="Cbs-g9-4Zm" id="1fJ-tc-7bm"/>
                         <outlet property="passwordTextField" destination="z1d-N3-Cga" id="IQX-lI-ADX"/>
                         <outlet property="signupButton" destination="HBH-km-ZnF" id="3DU-6y-CaD"/>
+                        <segue destination="NJr-X5-thb" kind="show" identifier="sendtologin" id="BH5-3v-XQH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e1L-Af-uMJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -837,7 +835,6 @@
         <image name="google_signin" width="2552" height="568"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1h6-N6-T0u"/>
-        <segue reference="YkI-vu-Lav"/>
+        <segue reference="BH5-3v-XQH"/>
     </inferredMetricsTieBreakers>
 </document>

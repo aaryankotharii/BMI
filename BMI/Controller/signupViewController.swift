@@ -184,6 +184,12 @@ class signupViewController: UIViewController{
     
     
     
+    @IBAction func alreadyAccountPressed(_ sender: Any) {
+        performSegue(withIdentifier: "sendtologin", sender: self)
+    }
+    
+    
+    
     //MARK: - google Signin
     @IBAction func googleSignIn(_ sender: Any) {
         
@@ -193,8 +199,6 @@ class signupViewController: UIViewController{
         
     self.blurView()
     }
-    
-    
     
     //MARK: - facebook Signin
     @IBAction func facebookSignin(_ sender: Any) {
