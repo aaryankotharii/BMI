@@ -29,10 +29,12 @@ class signupViewController: UIViewController{
     //MARK: - Variables
     let passwordConstraints : String =  "Password should be minimum 8 characters, should contain atleast one uppercase letter, one lowercase letter, atleast one number digit and at least one special character"
     
+    var LoginInStack : Bool = false
+    
     
     //MARK: - viewDidLoad + initial Setup
     override func viewDidLoad(){
-        
+
     super.viewDidLoad()
  
     initialSetup()
@@ -183,10 +185,21 @@ class signupViewController: UIViewController{
 }
     
     
-    
+    //MARK:- Already have an account? Login.
     @IBAction func alreadyAccountPressed(_ sender: Any) {
-        performSegue(withIdentifier: "sendtologin", sender: self)
-    }
+        if let viewControllers = self.navigationController?.viewControllers {
+              for vc in viewControllers {
+                   if vc.isKind(of: loginViewController.classForCoder()) {
+                        print("signupVC popped from stack")
+                        LoginInStack.toggle()
+                        self.navigationController?.popViewController(animated: true)
+                        }
+                    }
+                }
+       if LoginInStack == false{
+            performSegue(withIdentifier: "sendtologin", sender: self)
+            }
+        }
     
     
     

@@ -24,6 +24,8 @@ class loginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
+    //MARK: - variables
+    var signUpInStack : Bool = false
     
     
     //MARK:- viewDidLoad + Initial Setup
@@ -129,6 +131,22 @@ class loginViewController: UIViewController {
         self.present(navController, animated:true, completion: nil)
         }
     
+    
+    //MARK:- Dont have an account? SignUp
+    @IBAction func goToSignUp(_ sender: Any) {
+        if let viewControllers = self.navigationController?.viewControllers {
+              for vc in viewControllers {
+                   if vc.isKind(of: signupViewController.classForCoder()) {
+                        print("signInVC popped from stack")
+                        self.navigationController?.popViewController(animated: true)
+                        signUpInStack.toggle()
+                        }
+                    }
+                }
+       if signUpInStack == false{
+            performSegue(withIdentifier: "gotosignup", sender: self)
+            }
+        }
     
     //MARK: - google Login
     @IBAction func google_signin(_ sender: Any) {
