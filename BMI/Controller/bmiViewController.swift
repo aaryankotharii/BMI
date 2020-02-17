@@ -16,7 +16,10 @@ class bmiViewController: UIViewController {
     @IBOutlet weak var bmiValueLabel: UILabel!
     @IBOutlet weak var adviceLabel: UILabel!
     
-    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var heightLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
     //MARK: - Variables
     var name : String = ""
     var age : String = ""
@@ -51,6 +54,11 @@ class bmiViewController: UIViewController {
         bmiValueLabel.text = bmiValue
        // adviceLabel.text = advice
         view.backgroundColor = color
+        
+        nameLabel.text = "Name is  " + name
+        heightLabel.text = "Height " + height
+        weightLabel.text =  "Weight = " + weight
+        ageLabel.text = "Age is " + age
     }
     
     
