@@ -52,14 +52,15 @@ class bmiViewController: UIViewController {
         
         // assign variable values to outlets
         bmiValueLabel.text = bmiValue
-       // adviceLabel.text = advice
+        adviceLabel.text = advice
         view.backgroundColor = color
         
+        //Show user info
         nameLabel.text = "Name is  " + name
         heightLabel.text = "Height " + height
         weightLabel.text =  "Weight = " + weight
         ageLabel.text = "Age is " + age
-    }
+    2}
     
     
     //MARK:- Get Values

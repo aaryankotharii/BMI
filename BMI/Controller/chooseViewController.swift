@@ -15,6 +15,8 @@ class chooseViewController: UIViewController {
     //MARK: - Outlets + Variables
     @IBOutlet weak var greetingLabel: UILabel!
     
+    @IBOutlet weak var showDataButton: UIButton!
+    
     lazy var firstName = ""
     lazy var lastName = ""
     
